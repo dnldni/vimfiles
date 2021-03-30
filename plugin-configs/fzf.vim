@@ -10,7 +10,7 @@ call plug#begin('$LOCALAPPDATA\nvim\plugged')
       ":let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!node_modules/*" --glob "!.git/*"'
 
       if executable("bat")
-         let s:bind_opts = '--bind=ctrl-d:preview-page-down,ctrl-u:preview-page-up,alt-j:preview-down,alt-k:preview-up'
+         let s:bind_opts = '--bind=alt-d:preview-page-down,alt-u:preview-page-up,alt-j:preview-down,alt-k:preview-up'
          let s:preview_opts =  '--preview=bat --theme "1337" --style plain,numbers  --color always '
 
          command! -bang -nargs=? -complete=dir Files call fzf#vim#files(<q-args>, {'options': ['--color=border:#404040',

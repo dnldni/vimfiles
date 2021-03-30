@@ -37,8 +37,9 @@ augroup tsgroup
 
    " au BufNewFile,BufRead *.ts setlocal filetype=typescript
    " au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+   " au BufNewFile,BufRead *jsx,*.tsx setlocal filetype=typescriptreact
 
-   autocmd FileType typescript,typescript.tsx 
+   autocmd FileType typescript,typescript.tsx,typescriptreact
                \ :iabbrev <buffer> imr import React from "react" |
                \ :iabbrev <buffer> cmp interface ComponentProps{}<CR>const Component = (props:ComponentProps)  => {} |
                \ :iabbrev <buffer> ust const [state, setState] = useState() |
@@ -104,14 +105,13 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 "
 "" Syntax highlight for typescript
+" Plug 'peitalin/vim-jsx-typescript'
 Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 " Plug 'yuezk/vim-js'
 "Plug 'maxmellon/vim-jsx-pretty'
 
-" Plug 'peitalin/vim-jsx-typescript'
-"Plug 'peitalin/vim-jsx-typescript'
 
 
 " Plug 'leafgarland/typescript-vim' " TypeScript syntax
