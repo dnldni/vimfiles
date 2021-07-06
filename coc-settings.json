@@ -1,4 +1,8 @@
 {
+  "diagnostic.virtualTextPrefix": " // ",
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": true,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "diagnostic.errorSign": "•",
@@ -14,5 +18,18 @@
     "ts",
     "js",
     "jsx"
-  ]
+  ],
+  // explorer
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.file.cdCommand": "tcd",
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit",
+    "gl": false,
+    "<BS>": false,
+    "u": "gotoParent",
+    "cd": "cd"
+  }
 }

@@ -1,5 +1,9 @@
 " Keymaps
 "" General
+
+" set bg=dark  
+set smartindent
+
 let mapleader = " "
 set list
 set timeoutlen=400 ttimeoutlen=30
@@ -11,6 +15,7 @@ set diffopt+=iwhite
 let g:sessions_dir = "~/AppData/nvim"
 set hid
 set nrformats=alpha
+set completeopt=menuone,noinsert,noselect
 
 source $LOCALAPPDATA/nvim/plugin-configs/font-settings.vim
 source $LOCALAPPDATA/nvim/plugin-configs/terminal.vim
@@ -60,10 +65,8 @@ nnoremap <C-t> :Rg<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-f> :BLines<CR>
 
-""" NERDTree
-nnoremap <C-b> :NERDTreeToggle<CR>
 
-nnoremap <M-L> :NERDTreeFind<CR>
+" nnoremap <M-L> :NERDTreeFind<CR>
 
 "autocmd VimEnter * NERDTree | wincmd w
 
@@ -84,6 +87,7 @@ nnoremap <silent><C-l> :e <CR> <BAR> :redraw <CR>
 """ Edit config
 nnoremap <leader>rc :e $LOCALAPPDATA\nvim\init.vim<CR>
 nnoremap <leader>ts :e $LOCALAPPDATA/nvim/plugin-configs/ts-react-stack.vim<CR>
+nnoremap <leader>pl :e $LOCALAPPDATA/nvim/plugin-configs/plugins.vim<CR>
 """ Load config
 nnoremap <leader>vim :source $LOCALAPPDATA\nvim\init.vim<CR>
 
@@ -97,8 +101,9 @@ nnoremap <silent> <leader>gd :Gdiffsplit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 exec 'nnoremap <leader>so :so ' . g:sessions_dir . '/'
 
+
 """" Set local directory
-command! CDC cd %:p:h
+command! LCD cd %:p:h
 """ Clears the quickfix window
 command! ClearQuickfixList cexpr []
 
@@ -122,11 +127,10 @@ set ignorecase
 set termguicolors
 
 "" Tabs and spaces
-set tabstop=3       " number of visual spaces per TAB
-set softtabstop=3   " number of spaces in tab when editing
-set shiftwidth=3    " number of spaces to use for autoindent
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2   " number of spaces to use for autoindent
 set expandtab       " tabs are space
-set autoindent
 set copyindent      " copy indent from the previous line
 
 "" line numberings
@@ -142,7 +146,11 @@ set clipboard=unnamedplus
 " == AUTOCMD END ================================
 
 " :colorscheme monokai
-:colorscheme gruvbox
+" colorscheme gruvbox
+" set background=light
+" colorscheme solarized
+set background=dark
+colorscheme gruvbox
 
 :highlight Directory guifg=#AAAAAA ctermfg=grey
 :highlight CocHighlightText     ctermfg=LightMagenta    guifg=White guibg=Grey50
@@ -157,5 +165,10 @@ au BufNewFile,BufRead Dockerfile.* set filetype=dockerfile
 highlight CocHighlightText     ctermfg=LightMagenta    guifg=White guibg=Grey50
 
 if argc() == 0
-   "autocmd VimEnter * nested :edit #<1
+   " autocmd VimEnter * nested :edit #<1
 endif
+
+"Fern explorer
+" nnoremap <C-b> :Fern . -drawer -toggle<CR>
+" map <M-L> :Fern . -drawer -reveal=% <CR>
+

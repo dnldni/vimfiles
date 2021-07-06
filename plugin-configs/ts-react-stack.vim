@@ -5,7 +5,7 @@ set nowritebackup
 set signcolumn=yes
 
 " Smaller updatetime for CursorHold & CursorHoldI old value 1500
-set updatetime=400
+set updatetime=80
 "
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -15,10 +15,10 @@ set signcolumn=yes " coc for tslinting, auto complete and prettier
 
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} 
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " coc extensions 
-let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier'] 
+let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-explorer'] 
 nnoremap <leader>a :CocAction<CR>
 nnoremap <silent><C-k><C-d> :CocCommand prettier.formatFile<CR>
 nmap <leader>af <Plug>(coc-fix-current)
@@ -102,20 +102,17 @@ inoremap <silent><expr> <Tab>
 " Add syntax higlightning for comments inside json files
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
-"autocmd CursorHold * silent call CocActionAsync('highlight')
 "
 "" Syntax highlight for typescript
-" Plug 'peitalin/vim-jsx-typescript'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
+"Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'pangloss/vim-javascript'
+"Plug 'leafgarland/typescript-vim'
 " Plug 'yuezk/vim-js'
 "Plug 'maxmellon/vim-jsx-pretty'
 
 
 
-" Plug 'leafgarland/typescript-vim' " TypeScript syntax
-" Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 " Plug 'jparise/vim-graphql'        " GraphQL syntax
 " Plug 'ianks/vim-tsx'
 

@@ -2,8 +2,10 @@ call plug#begin('$LOCALAPPDATA\nvim\plugged')
       " Always enable preview window on the right with 60% width
       let g:fzf_preview_window = 'right:30%'
 
+      let $FZF_DEFAULT_OPTS="--bind ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
       if executable("rg")
-      :let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!node_modules/*" --glob "!.git/*"'
+        :let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!node_modules/*" --glob "!.git/*"'
+        " :let $FZF_DEFAULT_OPTS='--bind \"alt-d:preview-page-down,alt-u:preview-page-up,alt-j:preview-down,alt-k:preview-up\"'
       endif
 
       ":let $FZF_DEFAULT_COMMAND='git ls-files --cached --others --exclude-standard'
@@ -19,7 +21,7 @@ call plug#begin('$LOCALAPPDATA\nvim\plugged')
                                                                                                 \ '--color=fg:252,hl:67,fg+:252,bg+:235,hl+:81',
                                                                                                 \ '--color=info:144,prompt:161,spinner:135,pointer:135,marker:118',
                                                                                                 \ s:bind_opts,
-                                                                                                \ s:preview_opts . '{}'], 'down':'50%'}, <bang>0)
+                                                                                                \ s:preview_opts . '{}']}, <bang>0)
 
          command! -bang -nargs=? Buffers call fzf#vim#buffers({'options': ['--color=border:#404040',
                                                                               \ '--layout=reverse',
@@ -28,7 +30,7 @@ call plug#begin('$LOCALAPPDATA\nvim\plugged')
                                                                               \ '--info=inline',
                                                                               \ '--preview-window=50%',
                                                                               \ s:bind_opts,
-                                                                              \ s:preview_opts . "{4}" ], 'down': '50%'}, <bang>0)
+                                                                              \ s:preview_opts . "{4}" ]}, <bang>0)
 
          command! -bang -nargs=? -complete=dir Rg call fzf#vim#grep('rg --max-columns 100 --glob !public/** --line-number --no-heading --smart-case '.shellescape(<q-args>), 1, {
                                                                                                 \ 'options': ['--color=border:#404040',
@@ -38,7 +40,8 @@ call plug#begin('$LOCALAPPDATA\nvim\plugged')
                                                                                                 \ '--info=inline',
                                                                                                 \ '--delimiter=:','--nth=2..',
                                                                                                 \ s:bind_opts,
-                                                                                                \ s:preview_opts . '{1}'], 'down':'50%'}, <bang>0)
+                                                                                                \ s:preview_opts . '{1}']}, <bang>0)
+                                                                                                " \ s:preview_opts . '{1}'], 'down':'50%'}, <bang>0)
 
       endif
 

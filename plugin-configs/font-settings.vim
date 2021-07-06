@@ -2,9 +2,9 @@
 ":autocmd UIEnter * GuiFont! FiraCode\ NF:h11
 
 let g:font_size=11.5
-" let g:font_type="FuraCode\ NF"
- " let g:font_type="LiterationMono\ NF"
-let g:font_type="Hack\ NF"
+let g:font_type="FuraCode\ NF"
+" let g:font_type="LiterationMono\ NF"
+" let g:font_type="Hack\ NF"
 " let g:font_type="Consolas"
 
 function IncreaseFont()

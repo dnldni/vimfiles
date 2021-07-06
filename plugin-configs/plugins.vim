@@ -19,7 +19,7 @@ endif
 
 call plug#begin('$LOCALAPPDATA\nvim\plugged')
 
-      Plug 'tpope/vim-commentary' 
+       Plug 'tpope/vim-commentary' 
 
       " function! UnmapCommentary()
       "   unmap gc
@@ -32,17 +32,18 @@ call plug#begin('$LOCALAPPDATA\nvim\plugged')
       nmap <leader>c  <Plug>Commentary
       omap <leader>c  <Plug>Commentary
       nmap <leader>cc <Plug>CommentaryLine
-      nmap l<leader>c <Plug>ChangeCommentary
+      nmap <leader>c <Plug>ChangeCommentary
       nmap <leader>cu <Plug>Commentary<Plug>Commentary
 
-autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
+      autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
 
       " augroup bepo_clash
       "   autocmd!
       "   autocmd VimEnter * call UnmapCommentary()
       " augroup END "Powershell syntax highlighting
 
-      Plug 'zigford/vim-powershell'
+      " Plug 'zigford/vim-powershell'
+      Plug 'PProvost/vim-ps1'
 
       Plug 'mattn/emmet-vim'
 
@@ -66,8 +67,6 @@ autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
       """Surround stuff in params and other chars.
       Plug 'tpope/vim-surround'
 
-
-
       let g:EasyMotion_do_mapping = 0 " Disable default mappings
       let g:EasyMotion_smartcase = 1
       Plug 'easymotion/vim-easymotion'
@@ -81,19 +80,14 @@ autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
       map <Leader>k <Plug>(easymotion-k)
       map <Leader>h <Plug>(easymotion-linebackward)
 
+      noremap <silent><F12> :call quickmenu#toggle(0)<cr>
+
       map  / <Plug>(easymotion-sn)
       omap / <Plug>(easymotion-tn)
       " map  n <Plug>(easymotion-next)
       " map  N <Plug>(easymotion-prev)
 
-      """ NERDTree
-      Plug 'preservim/nerdtree'
-      Plug 'Xuyuanp/nerdtree-git-plugin'
-      let NERDTreeShowHidden=1
-      let g:NERDSpaceDelims = 1
-      let g:NERDDefaultAlign = 'left'
-
-      Plug 'ryanoasis/vim-devicons'
+"      Plug 'ryanoasis/vim-devicons'
       set encoding=UTF-8
 
       """ Unix like operations
@@ -137,6 +131,7 @@ autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
       Plug 'morhetz/gruvbox'
       Plug 'crusoexia/vim-monokai'
 
+
       """" Fuzzy finder
       "Plug 'junegunn/fzf', { 'do': './install --bin' }
       Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -148,13 +143,103 @@ autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
       "Commands BD and BDS
       Plug 'qpkorr/vim-bufkill'
 
-      let g:NERDCustomDelimiters={
-         \ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-         \ 'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-         \ 'typescript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-         \ 'typescriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
-      \}
+      Plug 'styled-components/vim-styled-components'
 
-      " Plug 'preservim/nerdcommenter'
+      Plug 'altercation/vim-colors-solarized'
+
+     " Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+     " Plug 'lambdalisue/fern.vim'
+     " Plug 'lambdalisue/nerdfont.vim'
+     " Plug 'lambdalisue/glyph-palette.vim'
+
+     " augroup my-glyph-palette
+     "   autocmd! *
+     "   autocmd FileType fern call glyph_palette#apply()
+     " augroup END
+
+     " let g:fern#renderer = "nerdfont"
+
+     " function! s:init_fern() abort
+
+     "   nmap <buffer><expr>
+     "       \ <Plug>(fern-my-expand-or-collapse)
+     "       \ fern#smart#leaf(
+     "       \   "\<Plug>(fern-action-collapse)",
+     "       \   "\<Plug>(fern-action-expand)",
+     "       \   "\<Plug>(fern-action-collapse)",
+     "       \ )
+
+     "   nmap <buffer><nowait> l <Plug>(fern-my-expand-or-collapse)
+
+     "   " nmap <buffer> <CR> <Plug>(fern-my-expand-or-collapse)
+     "   nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+     "   nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+     "   nmap <buffer> o <Plug>(fern-action-open)
+
+     "   nmap <buffer> cd <Plug>(fern-action-cd)
+     "   nmap <buffer> CD <Plug>(fern-action-enter)
+
+     "   nmap <buffer> u <Plug>(fern-action-leave)
+     "   nmap <buffer> ma <Plug>(fern-action-new-path)
+     "   nmap <buffer> md <Plug>(fern-action-remove)
+     "   nmap <buffer> mm <Plug>(fern-action-move)
+
+     "   nmap <buffer> r <Plug>(fern-action-reload)
+
+     "   nmap <buffer> <Tab> <Plug>(fern-action-mark)j
+
+     "   nmap <buffer> - /
+
+     "   colorscheme gruvbox
+
+     " endfunction
+
+     " augroup fern-custom
+     "   autocmd! *
+     "   autocmd FileType fern call s:init_fern()
+     " augroup END
+
+
+     " Explorer
+     let g:coc_explorer_global_presets = {
+     \   '.vim': {
+     \     'root-uri': '~/.vim',
+     \   },
+     \   'tab': {
+     \     'position': 'tab',
+     \     'quit-on-open': v:true,
+     \   },
+     \   'floating': {
+     \     'position': 'floating',
+     \     'open-action-strategy': 'sourceWindow',
+     \   },
+     \   'floatingTop': {
+     \     'position': 'floating',
+     \     'floating-position': 'center-top',
+     \     'open-action-strategy': 'sourceWindow',
+     \   },
+     \   'floatingLeftside': {
+     \     'position': 'floating',
+     \     'floating-position': 'left-center',
+     \     'floating-width': 50,
+     \     'open-action-strategy': 'sourceWindow',
+     \   },
+     \   'floatingRightside': {
+     \     'position': 'floating',
+     \     'floating-position': 'right-center',
+     \     'floating-width': 50,
+     \     'open-action-strategy': 'sourceWindow',
+     \   },
+     \   'simplify': {
+     \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+     \   }
+     \ }
+
+     nmap <C-b> :CocCommand explorer --toggle --focus<CR>
+     nmap <space>f :CocCommand explorer --preset floating<CR>
+     autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+     nnoremap <M-L> :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+     " nnoremap <M-L> :CocCommand explorer --no-toggle --focus --reveal %<CR>
 
 call plug#end()
