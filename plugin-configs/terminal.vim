@@ -8,9 +8,8 @@
 " let &shellredir='| Out-File -Encoding UTF8 %s'
 " set noshellslash
 
-      
+tnoremap  <C-\><C-n>
 if has('nvim')
-  tnoremap  <C-\><C-n>
   tnoremap <C-d> exit<CR>
 endif
 
@@ -46,8 +45,8 @@ func StartShell()
    call s:UseDefaultShell()
 endfunction
 
-nnoremap <silent><C-´> :exec StartShell()<Cr>
 nnoremap <silent> :exec StartShell()<Cr>
+nnoremap <silent><C-´> :exec StartShell()<Cr>
 autocmd TermOpen * 
          \ :set nonu | 
          \ :set norelativenumber

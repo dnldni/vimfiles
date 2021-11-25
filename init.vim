@@ -17,6 +17,11 @@ set hid
 set nrformats=alpha
 set completeopt=menuone,noinsert,noselect
 
+
+if has('unix')
+  let $LOCALAPPDATA="~/.config"
+endif
+
 source $LOCALAPPDATA/nvim/plugin-configs/font-settings.vim
 source $LOCALAPPDATA/nvim/plugin-configs/terminal.vim
 source $LOCALAPPDATA/nvim/plugin-configs/fzf.vim
@@ -85,11 +90,11 @@ nnoremap <silent><C-l> :e <CR> <BAR> :redraw <CR>
 
 "" Shortcuts
 """ Edit config
-nnoremap <leader>rc :e $LOCALAPPDATA\nvim\init.vim<CR>
+nnoremap <leader>rc :e $LOCALAPPDATA/nvim/init.vim<CR>
 nnoremap <leader>ts :e $LOCALAPPDATA/nvim/plugin-configs/ts-react-stack.vim<CR>
 nnoremap <leader>pl :e $LOCALAPPDATA/nvim/plugin-configs/plugins.vim<CR>
 """ Load config
-nnoremap <leader>vim :source $LOCALAPPDATA\nvim\init.vim<CR>
+nnoremap <leader>vim :source $LOCALAPPDATA/nvim/init.vim<CR>
 
 """Ctrl-tab like windows
 nnoremap <C-Tab> :bn<cr>
@@ -127,9 +132,9 @@ set ignorecase
 set termguicolors
 
 "" Tabs and spaces
-set tabstop=2       " number of visual spaces per TAB
+set tabstop=3       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
-set shiftwidth=2   " number of spaces to use for autoindent
+set shiftwidth=3   " number of spaces to use for autoindent
 set expandtab       " tabs are space
 set copyindent      " copy indent from the previous line
 

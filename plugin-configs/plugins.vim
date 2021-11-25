@@ -17,7 +17,7 @@ if has('win32')
    endif
 endif
 
-call plug#begin('$LOCALAPPDATA\nvim\plugged')
+call plug#begin('$LOCALAPPDATA/nvim/plugged')
 
        Plug 'tpope/vim-commentary' 
 
@@ -239,7 +239,10 @@ call plug#begin('$LOCALAPPDATA\nvim\plugged')
      nmap <space>f :CocCommand explorer --preset floating<CR>
      autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
-     nnoremap <M-L> :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
-     " nnoremap <M-L> :CocCommand explorer --no-toggle --focus --reveal %<CR>
+     " nnoremap <M-L> :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0',], [['relative', 0, 'file']])<CR>
+     " nnoremap <M-L> :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0',], [['relative', 0, 'file']])<CR>
+     nmap <M-L> <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+
+     nnoremap <C-A-l> :CocCommand explorer --no-toggle --focus --reveal='package.json' %<CR>
 
 call plug#end()

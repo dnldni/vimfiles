@@ -28,15 +28,15 @@ augroup tsgroup
    autocmd!
 
    " Remap keys for gotos and set correct filetype
-   au BufNewFile,BufRead *.tsx,*.ts
+   au BufNewFile,BufRead *.tsx,*.ts,*.js,*.jsx
             \ nmap <silent> gd <Plug>(coc-definition) |
             \ nmap <silent> gy <Plug>(coc-type-definition) |
             \ nmap <silent> gi <Plug>(coc-implementation) |
             \ nmap <silent> gr <Plug>(coc-references) |
-            \ nmap <C-r><C-r> <Plug>(coc-rename)
+            \ nmap <leader>rr <Plug>(coc-rename)
 
-   " au BufNewFile,BufRead *.ts setlocal filetype=typescript
-   " au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+   au BufNewFile,BufRead *.ts setlocal filetype=typescript
+   au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
    " au BufNewFile,BufRead *jsx,*.tsx setlocal filetype=typescriptreact
 
    autocmd FileType typescript,typescript.tsx,typescriptreact
@@ -104,12 +104,12 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 "
 "" Syntax highlight for typescript
-"Plug 'peitalin/vim-jsx-typescript'
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'pangloss/vim-javascript'
-"Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'pangloss/vim-javascript'
+" Plug 'leafgarland/typescript-vim'
 " Plug 'yuezk/vim-js'
-"Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'maxmellon/vim-jsx-pretty'
 
 
 
